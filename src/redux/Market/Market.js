@@ -1,27 +1,26 @@
-// Actions
+import axios from 'axios';
 
+const MY_KEY = 'sk_aa5cc3af96434151899646b1eaded257';
+// Actions
+const RETRIEVED_PRICES = 'Retriev-symbol-stock-average-price';
 
 // Reducer
-export default function reducer(state = {}, action = {}) {
+export default function reducer(state = [], action = {}) {
   switch (action.type) {
-    // do reducer stuff
+    case RETRIEVED_PRICES:
+      return [...state.filter((obj) => obj.symbol !== action.symbol),
+        { avgPrice: action.price, symbol: action.symbol }];
     default: return state;
   }
 }
 
 // Action Creators
-export function loadWidgets() {
-  return { type: LOAD };
-}
-
-export function createWidget(widget) {
-  return { type: CREATE, widget };
-}
-
-export function updateWidget(widget) {
-  return { type: UPDATE, widget };
-}
-
-export function removeWidget(widget) {
-  return { type: REMOVE, widget };
-}
+// Thunks
+export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
+  if (symbols.length !== 0) {
+    symbols.map(async (symbol) => {
+      const response = await axios(`https://cloud.iexapis.com/stable/stock/${symbol}/intraday-prices?token=${MY_KEY}`);
+      dispatch({ type: RETRIEVED_PRICES, price: response.data[0].average, symbol });
+    });
+  }
+};
