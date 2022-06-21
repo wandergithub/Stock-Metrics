@@ -1,18 +1,19 @@
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import {
   Routes,
   Route,
 } from 'react-router-dom';
-import { getAvgStockPrices } from './redux/Market/Market';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import Home from './components/Home';
 import Header from './components/Header';
+import Categories from './modules/Categories';
+import { getAvgStockPrices } from './redux/Market/Market';
 
 function App() {
   const dispatch = useDispatch();
-  const mostSearched = ['aapl', 'META', 'GOOG', 'TSLA', 'NVDA', 'BABA'];
   useEffect(() => {
-    dispatch(getAvgStockPrices(mostSearched));
+    dispatch(getAvgStockPrices([...Categories.mostSearched,
+      ...Categories.losers, ...Categories.gainers]));
   }, []);
   return (
     <div>

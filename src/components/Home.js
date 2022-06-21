@@ -1,17 +1,26 @@
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import List from './List';
 
 export default function Home() {
-  const stocks = useSelector((state) => state);
+  const [filter, setFilter] = useState('mostSearched');
+  function categoriesHandler(e) {
+    setFilter(e.target.value);
+  }
   return (
     <div>
+      <div>
+        <select name="categories" id="categories" onChange={categoriesHandler}>
+          <option value="mostSearched">Most Searched</option>
+          <option value="gainers">Gainers</option>
+          <option value="losers">Losers</option>
+        </select>
+      </div>
+      <p>
+        Stocks:
+        {filter}
+      </p>
       <ul>
-        {stocks.map((stockObj) => (
-          <li key={stockObj.symbol}>
-            {stockObj.symbol}
-            {' $'}
-            {stockObj.avgPrice}
-          </li>
-        ))}
+        <List filter={filter} />
       </ul>
     </div>
   );
