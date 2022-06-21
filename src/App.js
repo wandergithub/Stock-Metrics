@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Header from './components/Header';
 import Categories from './modules/Categories';
 import { getAvgStockPrices } from './redux/Market/Market';
+import Details from './components/Details';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/details" element={<Details />} />
       </Routes>
     </div>
   );
