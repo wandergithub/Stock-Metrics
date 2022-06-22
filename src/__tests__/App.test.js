@@ -11,24 +11,7 @@ import apiData from '../modules/api';
 // and return the response stocks Data after 150ms
 // when receiving a get request to the `https://cloud.iexapis.com/stable/stock/<symbol>/intraday-prices` endpoint
 const handlers = [
-  rest.get('https://cloud.iexapis.com/stable/stock/AAPLE/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/REV/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/LEXX/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/SWVL/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/SOUN/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/MREO/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/GBNH/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/ADN/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/TBLT/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/ADXN/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/CNVY/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/WBA/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/NVDA/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/MSFT/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/BON/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/GOOG/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/META/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
-  rest.get('https://cloud.iexapis.com/stable/stock/AAPL/intraday-prices', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
+  rest.get('https://cloud.iexapis.com/stable/tops', (req, res, ctx) => res(ctx.json(apiData), ctx.delay(150))),
 ];
 
 const server = setupServer(...handlers);
@@ -49,7 +32,7 @@ describe('App integration tests', () => {
     expect(element).toBeInTheDocument();
   });
 
-  test('Stock initially displayed', () => {
+  test('Stocks initially displayed', () => {
     render(<App />);
 
     const element = screen.queryByText(/MCSF/i);
@@ -57,15 +40,18 @@ describe('App integration tests', () => {
     expect(element).toBeInTheDocument();
   });
 
-  test('Filter option works', () => {
+  test('Filter option', () => {
     render(<App />);
     const filter = screen.getByTestId('select');
     const element = screen.queryByText(/MCSF/i);
-    // Element initialy in the list
+    // electronictechnology categorie items not in the list.
+    expect(screen.queryByText(/AAPL/i)).not.toBeInTheDocument();
+    // Initial categorie in the list.
     expect(element).toBeInTheDocument();
-    // Filter changed
-    userEvent.selectOptions(filter, 'losers');
-    // Element not in the list
+    // User Changes filter options
+    userEvent.selectOptions(filter, 'electronictechnology');
+    // electronictechnology categorie items appears on the list
+    expect(screen.queryByText(/AAPL/i)).toBeInTheDocument();
     expect(element).not.toBeInTheDocument();
   });
 

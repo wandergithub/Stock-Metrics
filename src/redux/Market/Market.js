@@ -34,6 +34,7 @@ export default function reducer(state = [], action = {}) {
 
 // Action Creators
 export const stockDetails = (symbol) => ({ type: OPENED_DETAILS, symbol });
+
 // Thunks
 export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
   const rSymbols = symbols.join(',');
