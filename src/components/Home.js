@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <div>
-        <select name="categories" id="categories" onChange={categoriesHandler}>
+        <select data-testid="select" name="categories" id="categories" onChange={categoriesHandler}>
           <option value="mostSearched">Most Searched</option>
           <option value="gainers">Gainers</option>
           <option value="losers">Losers</option>

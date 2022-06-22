@@ -41,7 +41,6 @@ export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
   if (symbols.length !== 0) {
     symbols.map(async (symbol) => {
       const response = await axios(`https://cloud.iexapis.com/stable/stock/${symbol}/intraday-prices?token=${MY_KEY}`);
-
       let categorie;
       if (Categories.mostSearched.includes(symbol)) categorie = 'mostSearched';
       if (Categories.gainers.includes(symbol)) categorie = 'gainers';
@@ -75,7 +74,7 @@ export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
         numberOfTrades = response.data[i].numberOfTrades;
         date = response.data[i].date;
       } catch (ex) {
-        console.log(`${symbol} Stock price not found`);
+        console.erro(`${symbol} Stock price not found`);
       }
 
       dispatch({
