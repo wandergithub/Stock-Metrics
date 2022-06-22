@@ -7,7 +7,7 @@ export default function List(props) {
   const dispatch = useDispatch();
 
   return (stocks.map((stockObj) => {
-    if (stockObj.categorie === props.filter) {
+    if (stockObj.sector === props.filter) {
       return (stockObj.lastSalePrice
         ? (
           <li key={stockObj.symbol}>

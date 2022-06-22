@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Categories from '../../modules/Categories';
 
 const MY_KEY = 'sk_aa5cc3af96434151899646b1eaded257';
 // Actions
@@ -20,7 +19,6 @@ export default function reducer(state = [], action = {}) {
           volume: action.volume,
           lastSalePrice: action.lastSalePrice,
           lastSaleSize: action.lastSaleSize,
-          categorie: action.categorie,
           symbol: action.symbol,
         }];
     case OPENED_DETAILS:
@@ -42,11 +40,6 @@ export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
   const response = await axios(`https://cloud.iexapis.com/stable/tops?token=${MY_KEY}&symbols=${rSymbols}`);
   if (response.data.length !== 0) {
     response.data.map(async (obj) => {
-      let categorie;
-      if (Categories.mostSearched.includes(obj.symbol)) categorie = 'mostSearched';
-      if (Categories.gainers.includes(obj.symbol)) categorie = 'gainers';
-      if (Categories.losers.includes(obj.symbol)) categorie = 'losers';
-
       let sector;
       let securityType;
       let bidPrice;
@@ -81,7 +74,6 @@ export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
         volume,
         lastSalePrice,
         lastSaleSize,
-        categorie,
         symbol: obj.symbol,
       });
     });
