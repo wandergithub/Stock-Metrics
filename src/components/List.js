@@ -8,13 +8,13 @@ export default function List(props) {
 
   return (stocks.map((stockObj) => {
     if (stockObj.categorie === props.filter) {
-      return (stockObj.avgPrice
+      return (stockObj.lastSalePrice
         ? (
           <li key={stockObj.symbol}>
             <Link to="/details" onClick={() => dispatch(stockDetails(stockObj.symbol))}>
               {stockObj.symbol}
               {' $'}
-              {stockObj.avgPrice}
+              {stockObj.lastSalePrice}
             </Link>
           </li>
         ) : ''

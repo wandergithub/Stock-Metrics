@@ -11,17 +11,17 @@ export default function reducer(state = [], action = {}) {
     case RETRIEVED_PRICES:
       return [...state.filter((obj) => obj.symbol !== action.symbol),
         {
-          avgPrice: action.price,
-          symbol: action.symbol,
-          categorie: action.categorie,
-          label: action.label,
-          high: action.high,
-          low: action.low,
-          open: action.open,
-          close: action.close,
+          sector: action.sector,
+          securityType: action.securityType,
+          bidPrice: action.bidPrice,
+          bidSize: action.bidSize,
+          askPrice: action.askPrice,
+          askSize: action.askSize,
           volume: action.volume,
-          numberOfTrades: action.numberOfTrades,
-          date: action.date,
+          lastSalePrice: action.lastSalePrice,
+          lastSaleSize: action.lastSaleSize,
+          categorie: action.categorie,
+          symbol: action.symbol,
         }];
     case OPENED_DETAILS:
       return [...state.map((obj) => {
@@ -38,58 +38,51 @@ export default function reducer(state = [], action = {}) {
 export const stockDetails = (symbol) => ({ type: OPENED_DETAILS, symbol });
 // Thunks
 export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
-  if (symbols.length !== 0) {
-    symbols.map(async (symbol) => {
-      const response = await axios(`https://cloud.iexapis.com/stable/stock/${symbol}/intraday-prices?token=${MY_KEY}`);
+  const rSymbols = symbols.join(',');
+  const response = await axios(`https://cloud.iexapis.com/stable/tops?token=${MY_KEY}&symbols=${rSymbols}`);
+  if (response.data.length !== 0) {
+    response.data.map(async (obj) => {
       let categorie;
-      if (Categories.mostSearched.includes(symbol)) categorie = 'mostSearched';
-      if (Categories.gainers.includes(symbol)) categorie = 'gainers';
-      if (Categories.losers.includes(symbol)) categorie = 'losers';
+      if (Categories.mostSearched.includes(obj.symbol)) categorie = 'mostSearched';
+      if (Categories.gainers.includes(obj.symbol)) categorie = 'gainers';
+      if (Categories.losers.includes(obj.symbol)) categorie = 'losers';
 
-      let avg;
-      let label;
-      let high;
-      let low;
-      let open;
-      let close;
+      let sector;
+      let securityType;
+      let bidPrice;
+      let bidSize;
+      let askPrice;
+      let askSize;
+      let lastSalePrice;
+      let lastSaleSize;
       let volume;
-      let numberOfTrades;
-      let date;
       try {
-        let i = 0;
-        let p = 0;
-        do {
-          i = p;
-          p += 1;
-        }
-        while (response.data[i].average === null);
-
-        avg = response.data[i].average;
-        label = response.data[i].label;
-        high = response.data[i].high;
-        low = response.data[i].low;
-        open = response.data[i].open;
-        close = response.data[i].close;
-        volume = response.data[i].volume;
-        numberOfTrades = response.data[i].numberOfTrades;
-        date = response.data[i].date;
+        sector = obj.sector;
+        securityType = obj.securityType;
+        bidPrice = obj.bidPrice;
+        bidSize = obj.bidSize;
+        askPrice = obj.askPrice;
+        askSize = obj.askSize;
+        volume = obj.volume;
+        lastSalePrice = obj.lastSalePrice;
+        lastSaleSize = obj.lastSaleSize;
       } catch (ex) {
-        console.erro(`${symbol} Stock price not found`);
+        console.erro(`${obj.symbol} Stock information not found`);
       }
 
       dispatch({
         type: RETRIEVED_PRICES,
-        price: avg,
-        symbol,
-        categorie,
-        label,
-        high,
-        low,
-        open,
-        close,
+        sector,
+        securityType,
+        bidPrice,
+        bidSize,
+        askPrice,
+        askSize,
         volume,
-        numberOfTrades,
-        date,
+        lastSalePrice,
+        lastSaleSize,
+        categorie,
+        symbol: obj.symbol,
       });
     });
   }
