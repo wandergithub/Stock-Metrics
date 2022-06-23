@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import List from './List';
+import mainImg from '../assets/main-image.png';
 
 export default function Home() {
   const [filter, setFilter] = useState('n/a');
@@ -15,8 +16,12 @@ export default function Home() {
 
   return (
     <div>
-      <div>
-        <select data-testid="select" name="categories" id="categories" onChange={categoriesHandler}>
+      <div><img className="main-img" src={mainImg} alt="main-img" /></div>
+      <div className="select-container">
+        <p>
+          Filter by stock sector:
+        </p>
+        <select className="select-input" data-testid="select" name="categories" id="categories" onChange={categoriesHandler}>
           {uniqueSectors.map((sector) => (
             <option
               key={sector}
@@ -27,11 +32,7 @@ export default function Home() {
           ))}
         </select>
       </div>
-      <p>
-        Filter by sector:
-        {filter}
-      </p>
-      <ul>
+      <ul className="grid-container">
         <List filter={filter} />
       </ul>
     </div>

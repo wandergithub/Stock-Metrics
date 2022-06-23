@@ -14,6 +14,12 @@ html {
   justify-content: space-between;
   align-items: center;
   background-color: #3a5c9b;
+  box-shadow: 5px 0 2px 2px #1a2b4a;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
 }
 
 .back-i {
@@ -24,11 +30,88 @@ html {
 .page-t {
   text-decoration: none;
   color: white;
-  font-size: large;
+  font-size: 24px;
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.05em;
 }
 
 .settings-i {
   margin: 10px;
+}
+
+.main-img {
+  width: 100vw;
+}
+
+.select-container {
+  background-color: #1a2b4ad4;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+}
+
+.select-container p {
+  color: white;
+  align-self: center;
+  margin-left: 10px;
+}
+
+.select-input {
+  color: white;
+  padding: 22px;
+  border: none;
+  -webkit-appearance: button;
+  outline: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(assets/arrow.png) no-repeat right #1a2b4ad4;
+}
+
+.select-input::after {
+  content: "→";
+  color: #333;
+}
+
+.select-input > option {
+  padding: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-decoration: none;
+  list-style: none;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grid-item-l {
+  display: flex;
+  background-color: #365590;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.grid-item-r {
+  display: flex;
+  background-color: #4369b2;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.grid-link {
+  text-decoration: none;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.grid-link > img {
+  margin-left: 20px;
+  align-self: center;
 }

@@ -1,7 +1,7 @@
 # Stock-Metrics
 
 <a href="https://iexcloud.io">IEX Cloud</a>
-
+<a href='https://.pngtree.com/so/Gráfico'>Gráfico png de .pngtree.com/</a>
 
 ## :ledger: Index
 
