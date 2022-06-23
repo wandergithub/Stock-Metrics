@@ -8,16 +8,15 @@ export default function List(props) {
 
   return (stocks.map((stockObj) => {
     if (stockObj.sector === props.filter) {
-      return (stockObj.lastSalePrice
-        ? (
-          <li key={stockObj.symbol}>
-            <Link to="/details" onClick={() => dispatch(stockDetails(stockObj.symbol))}>
-              {stockObj.symbol}
-              {' $'}
-              {stockObj.lastSalePrice}
-            </Link>
-          </li>
-        ) : ''
+      return ((
+        <li key={stockObj.symbol}>
+          <Link to="/details" onClick={() => dispatch(stockDetails(stockObj.symbol))}>
+            {stockObj.symbol}
+            {' $'}
+            {stockObj.lastSalePrice}
+          </Link>
+        </li>
+      )
       );
     }
     return null;

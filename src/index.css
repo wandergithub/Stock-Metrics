@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+html {
+  background-color: #4369b2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a5c9b;
+}
+
+.back-i {
+  height: 27px;
+  margin: 10px;
+}
+
+.page-t {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.settings-i {
+  margin: 10px;
+}
