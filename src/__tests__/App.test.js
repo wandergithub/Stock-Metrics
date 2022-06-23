@@ -27,7 +27,7 @@ describe('App integration tests', () => {
   test('Displays home page initially', () => {
     render(<App />);
 
-    const element = screen.queryByText(/2022/i);
+    const element = screen.queryByText(/Filter/i);
 
     expect(element).toBeInTheDocument();
   });
@@ -59,13 +59,13 @@ describe('App integration tests', () => {
     render(<App />);
     const element = screen.queryByText(/MCSF/i);
     // Initialize on Home page
-    expect(screen.getByText(/2022/i)).toBeInTheDocument();
+    expect(screen.getByText(/Filter/i)).toBeInTheDocument();
     // Select an item
     userEvent.click(element);
     // Go to details page
     expect(window.location.pathname).toBe('/details');
     // Click Back to Home page
-    userEvent.click(screen.getByText(/back/i));
+    userEvent.click(screen.getByTestId('backBtn'));
     // Expect to be on Home page again
     expect(window.location.pathname).toBe('/');
   });
