@@ -1,24 +1,24 @@
 # Stock-Metrics
 > Mobile web app which allows the user to look for real-time information on the stock market like ask-Price, close-price, and much more. The user can filter the available stocks for their category in the field, which could be Service technology or electronic technology. The user can select the stock and go to the details page where all the information available about the selected stock is displayed.
 
+## Built With <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-build-agile-flaticons-lineal-color-flat-icons.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
+
+- React 
+- Redux
+      
+
+## Live Demo <img src="https://img.icons8.com/color/344/trial-version.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
+
+[Heroku](https://stock-market-webb-app.herokuapp.com) <img src="https://img.icons8.com/color/344/heroku.png" alt="Bootstrap Icon" style="width: 25px; height: 25px">
+
 ## :ledger: Index
 
-- [About](#beginner-about)
-- [Usage](#zap-usage)
-  - [Installation](#electric_plug-installation)
-  - [Commands](#package-commands)
-- [Development](#wrench-development)
-  - [Pre-Requisites](#notebook-pre-requisites)
+- [important note](#Important-note-about-the-app)
   - [Developmen Environment](#nut_and_bolt-development-environment)
-  - [File Structure](#file_folder-file-structure)
-  - [Build](#hammer-build)  
-  - [Deployment](#rocket-deployment)  
+  - [File Structure](#file_folder-file-structure)  
 - [Community](#cherry_blossom-community)
   - [Contribution](#fire-contribution)
-  - [Branches](#cactus-branches)
-  - [Guideline](#exclamation-guideline)  
-- [FAQ](#question-faq)
-- [Resources](#page_facing_up-resources)
+  - [Branches](#cactus-branches) 
 - [Gallery](#camera-gallery)
 - [Credit/Acknowledgment](#star2-creditacknowledgment)
 - [License](#lock-license)
