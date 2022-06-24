@@ -1,7 +1,5 @@
 # Stock-Metrics
-
-<a href="https://iexcloud.io">IEX Cloud</a>
-<a href='https://.pngtree.com/so/Gráfico'>Gráfico png de .pngtree.com/</a>
+> Mobile web app which allows the user to look for real-time information on the stock market like ask-Price, close-price, and much more. The user can filter the available stocks for their category in the field, which could be Service technology or electronic technology. The user can select the stock and go to the details page where all the information available about the selected stock is displayed.
 
 ## :ledger: Index
 
@@ -25,74 +23,54 @@
 - [Credit/Acknowledgment](#star2-creditacknowledgment)
 - [License](#lock-license)
 
-##  :beginner: About
-Add a detailed introduction about the project here, everything you want the reader to know.
+##  :beginner: Important note about the app
 
-## :zap: Usage
-Write about how to use this project.
-
-###  :electric_plug: Installation
-- Steps on how to install this project, to use it.
-- Be very detailed here, For example, if you have tools which run on different operating systems, write installation steps for all of them.
-
-```
-$ add installations steps if you have to.
-```
-
-###  :package: Commands
-- Commands to start the project.
-
-##  :wrench: Development
-If you want other people to contribute to this project, this is the section, make sure you always add this.
-
-### :notebook: Pre-Requisites
-List all the pre-requisites the system needs to develop this project.
-- A tool
-- B tool
+Consider that this web app works with real Stocks market data, so keep the following in mind: <strong>Regular hours for the New York Stock Exchange and the Nasdaq go from 9:30 a.m. to 4 p.m. ET from Monday to Friday.</strong> So the majority of data won't be available outside regular hours.
 
 ###  :nut_and_bolt: Development Environment
-Write about setting up the working environment for your project.
-- How to download the project...
-- How to install dependencies...
+Be sure to have [Node.js](https://nodejs.org/) installed before proceeding.
+```shell
+# Clone the repo
+git clone https://github.com/wandergithub/Stock-Metrics
+# Change directory
+cd Stock-Metrics
+# Install dependencies
+npm i
+# Start local server
+npm start
+```
 
 
 ###  :file_folder: File Structure
-Add a file structure here with the basic details about files, below is an example.
+
 
 ```
 .
-├── assets
-│   ├── css
-│   │   ├── index-ui.css
-│   │   └── rate-ui.css
-│   ├── images
-│   │   ├── icons
-│   │   │   ├── shrink-button.png
-│   │   │   └── umbrella.png
-│   │   ├── logo_144.png
-│   │   └── Untitled-1.psd
-│   └── javascript
-│       ├── index.js
-│       └── rate.js
-├── CNAME
-├── index.html
-├── rate.html
+├── src
+│   ├── __tests__
+│   │   
+│   ├── assets
+│   │   ├── appscreenshots
+│   │   │   ├── mobile2.png
+│   │   │   └── mobile1.png
+│   │   ├── icon.png
+│   │   └── arrow-1.psd
+│   ├── Components
+│   │   └── Component.js
+│   ├── modules
+│   │   └── module.js
+│   ├── redux
+│   │   └── config.js
+│   ├── App.js
+│   ├── index.css
+│   └── index.js
+│       
+├── .eslintrc.json
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
-| No | File Name | Details 
-|----|------------|-------|
-| 1  | index | Entry point
-
-###  :hammer: Build
-Write the build Instruction here.
-
-### :rocket: Deployment
-Write the deployment instruction here.
-
-## :cherry_blossom: Community
-
-If it's open-source, talk about the community here, ask social media links and other links.
 
  ###  :fire: Contribution
 
@@ -114,9 +92,9 @@ If it's open-source, talk about the community here, ask social media links and o
 
  I use an agile continuous integration methodology, so the version is frequently updated and development is really fast.
 
-1. **`stage`** is the development branch.
+1. **`dev`** is the development branch.
 
-2. **`master`** is the production branch.
+2. **`main`** is the production branch.
 
 3. No other permanent branches should be created in the main repository, you can create feature branches but they should get merged with the master.
 
@@ -133,22 +111,16 @@ If it's open-source, talk about the community here, ask social media links and o
 
 After this, changes will be merged.
 
-
-### :exclamation: Guideline
-coding guidelines or other things you want people to follow should follow.
-
-
-## :question: FAQ
-You can optionally add a FAQ section about the project.
-
-##  :page_facing_up: Resources
-Add important resources here
-
 ##  :camera: Gallery
-Pictures of your project.
+<img src="src\assets\appScreenshots\mobile3.png" style="width:50%; margin: 10px;">
+<img src="src\assets\appScreenshots\mobile-2.png" style="width:50%; margin: 10px;">
+<img src="src\assets\appScreenshots\mobile-1.png" style="width:50%; margin: 10px;">
+
 
 ## :star2: Credit/Acknowledgment
-Credit the authors here.
+- <a href="https://iexcloud.io">IEX Cloud</a>
+- <a href='https://.pngtree.com/so/Gráfico'>Gráfico png de .pngtree.com/</a>
+- <a href='https://www.behance.net/sakwadesignstudio'>Original design idea by Nelson Sakwa on Behance.</a>
 
 ##  :lock: License
-Add a license here, or a link to it.
+This project is [MIT](./LICENSE) licensed.
