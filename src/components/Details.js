@@ -61,7 +61,7 @@ export default function Details() {
     );
   } catch (err) {
     stock = apiData;
-    console.error('error fetching stock info, Go back to home page');
+    // console.error('error fetching stock info, Go back to home page');
     return (
       <div className="details-container text">
         <p className="title">

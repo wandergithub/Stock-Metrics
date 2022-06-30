@@ -61,7 +61,7 @@ export const getAvgStockPrices = (symbols = []) => async (dispatch) => {
         lastSalePrice = obj.lastSalePrice;
         lastSaleSize = obj.lastSaleSize;
       } catch (ex) {
-        console.erro(`${obj.symbol} Stock information not found`);
+        // console.erro(`${obj.symbol} Stock information not found`);
       }
 
       dispatch({

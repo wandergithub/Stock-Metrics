@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div>
-      <div><img className="main-img" src={mainImg} alt="main-img" /></div>
+      <div className="main-img-div"><img className="main-img" src={mainImg} alt="main-img" /></div>
       <div className="select-container">
         <p>
           Filter by stock sector:
