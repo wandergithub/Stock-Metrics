@@ -5,10 +5,6 @@
   padding: 0%;
 }
 
-body {
-  background-color: #436ab254 !important;
-}
-
 .SettingsIcon {
   margin-right: 30px;
 }
@@ -187,4 +183,8 @@ header {
   font-size: larger;
   border-top: 1px solid rgb(154, 154, 154);
   border-bottom: 1px solid rgb(154, 154, 154);
+}
+
+body {
+  background-color: #436ab254;
 }
