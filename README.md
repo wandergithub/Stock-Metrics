@@ -5,6 +5,7 @@
 
 - React 
 - Redux
+- Jest
       
 
 ## Live Demo <img src="https://img.icons8.com/color/344/trial-version.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
