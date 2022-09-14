@@ -32,7 +32,6 @@ html {
   text-decoration: none;
   color: white;
   font-size: 24px;
-
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.05em;
 }
@@ -54,7 +53,6 @@ html {
   background-color: #1a2b4ad4;
   display: flex;
   justify-content: space-between;
-
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: larger;
 }
@@ -129,7 +127,6 @@ html {
 .grid-link {
   text-decoration: none;
   color: white;
-
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 900;
   font-size: 20px;
@@ -140,7 +137,6 @@ html {
 .Footer {
   display: flex;
   color: white;
-
   font-family: 'Lato', sans-serif;
   text-align: center;
   justify-content: center;
@@ -184,7 +180,7 @@ body {
   background-color: #436ab254;
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 600px) {
   html {
     display: flex;
     background-image: url(./assets/phone.png);
@@ -192,11 +188,12 @@ body {
     background-position: center;
     align-items: center;
   }
-  
+
   body {
     background-color: #436ab200;
     width: 590px;
   }
+
   .main-img {
     width: 590px;
   }
