@@ -10,7 +10,7 @@
 
 ## Live Demo <img src="https://img.icons8.com/color/344/trial-version.png" alt="Bootstrap Icon" style="width: 50px; height: 50px">
 
-[Heroku](https://stock-market-webb-app.herokuapp.com) <img src="https://img.icons8.com/color/344/heroku.png" alt="Bootstrap Icon" style="width: 25px; height: 25px">
+[Netlify](https://melodious-bombolone-be545d.netlify.app/)
 
 ## :ledger: Index
 
